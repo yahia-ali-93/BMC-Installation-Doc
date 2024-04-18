@@ -30,7 +30,7 @@ These are helper libraries required for the installation
 
 ## Check VM availability from another machine in the cluster
 You have to check that the machine is visible from other machines in the same cluster
-```
+```shell
 nslookup <FQDN>
 nslookup <server-ip>
 ```
@@ -42,21 +42,21 @@ Download the two files mentioned in the documentation to the VM
 - Put both files in the root directory of the machine
 
 ## Creating users
-Run the following commands in sequence. Note the commented line **//** above each command explains the command below so ***don't run the commented line***
+Run the following commands in sequence. Note the commented line **#** above each command explains the command below so ***don't run the commented line***
 
-```
-// add the git user
+```shell
+# add the git user
 sudo useradd git -m
-// set password for the get user ... don't use @ or # characters in here .. use _ as it is safe to use
+# set password for the get user ... don't use @ or # characters in here .. use _ as it is safe to use
 sudo passwd git
-// add the jenkins user
+# add the jenkins user
 sudo useradd jenkins -m
-// set password for the jenkins user .. don't use @ or # characters in here .. use _ as it is safe to use
+# set password for the jenkins user .. don't use @ or # characters in here .. use _ as it is safe to use
 sudo passwd jenkins
-// Add the jenkins user to the git group and vise versa
+# Add the jenkins user to the git group and vise versa
 sudo usermod -a -G git jenkins
 sudo usermod -a -G jenkins git
-// add sudo access to the git user
+# add sudo access to the git user
 sudo usermod -aG wheel git
 ```
 
@@ -65,7 +65,7 @@ follow the documentation in this section to provide the passwordless sudo access
 
 ## Copy files to the intended directory
 Copy both of the downloaded files to the home directory of the **git** user by running the following two commands
-```
+```shell
 cp <path-to-first-file> /home/git
 cp <path-to-second-file> /home/git
 ```
@@ -73,28 +73,28 @@ cp <path-to-second-file> /home/git
 ## Switch to the git user and perform the pre-install configurations
 perform the following steps in order
 1. switch to the git user
-    ```
+    ```shell
     su - git
     ```
 2. unzip the **BMC_Helix_Innovation_Suite_And_Service_Management_Apps_Version_2.1.06.zip**
-    ```
+    ```shell
     unzip BMC_Helix_Innovation_Suite_And_Service_Management_Apps_Version_22.1.06.zip
     ```
 3. change the owner of each file from the extracted zip files
-    ```
+    ```shell
     sudo chown -R git:git BMC_Remedy_Deployment_Manager_Configuration_Release_22.1.06.zip
     sudo chown -R git:git BMC_Remedy_Deployment_Engine_Setup_22.1.06.zip
     ```
 4. unzip the **BMC_Remedy_Deployment_Engine_Setup_22.1.06** file
-    ```
+    ```shell
     unzip BMC_Remedy_Deployment_Engine_Setup_22.1.06.zip
     ```
 5. update the **FQDN** of the machine
-    ```
+    ```shell
     hostnamectl set-hostname <new-host-name>
     ```
 5. change directory to the **DE1.0** folder and update the build.properties file 
-    ```
+    ```shell
     cd DE1.0
     vi build.properties
     ```
@@ -110,11 +110,11 @@ Some prequisets are not installed by default by BMC and are not mentioned in any
     - Ansible is not installed by default and there is no mention of any steps to install it in the documentation
     - run `yum install ansible` to install it but check that the version to be installed is **2.9.xx**.
         - If this is not true, and you are on ***RHEL 8*** then do the following.
-            ```
-            // Add the ansible 2.9 repo to RHEL 8
+            ```shell
+            # Add the ansible 2.9 repo to RHEL 8
             sudo subscription-manager repos --enable ansible-2.9-for-rhel-8-x86_64-rpms
 
-            // install ansible 2.9.xx from yum
+            # install ansible 2.9.xx from yum
             sudo yum install ansible-2.9.27
             ```
         - If you're not on **RHEL 8** and want to install ansible 2.9 you can install **pip** and install ansible 2.9 from there but keep in mind
@@ -127,22 +127,22 @@ Some prequisets are not installed by default by BMC and are not mentioned in any
     - First thing to do is try to run `yum install groovy` .. you might be lucky and the package is available from yum
         - don't forget to try the above command from the **root** user
     - If it's not available you can install it using **sdkman**. run the following commands **from the git user**
-        ```
-        // Fetch and install sdkman
+        ```shell
+        # Fetch and install sdkman
         curl -s "https://get.sdkman.io" | bash
 
-        // Add sdkman to the current terminal session
+        # Add sdkman to the current terminal session
         source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-        // check if its working
+        # check if its working
         sdk version
 
-        // install groovy
+        # install groovy
         sdk install groovy
         ```
 
 ## Script editing
-The installation script has four lines that should be commented **before running the script**. click (here)[https://community.bmc.com/s/article/BMC-Helix-ITSM-OnPrem-setup-Helix-ITSM-onPrem-pl-fails-with-error-sed-can-t-read-etc-sysconfig-jenkins-No-such-file-or-directory] and follow the instructions in the solutions section
+The installation script has four lines that should be commented **before running the script**. click [https://community.bmc.com/s/article/BMC-Helix-ITSM-OnPrem-setup-Helix-ITSM-onPrem-pl-fails-with-error-sed-can-t-read-etc-sysconfig-jenkins-No-such-file-or-directory](here) and follow the instructions in the solutions section
 
 ## Running the script and post-running configurations
 1. Run the script to install the deployment engine
