@@ -19,5 +19,5 @@ The solution is to run all commands that you need to deduce the values of the pa
 
 ## Important Links
 
-**Tenant Creation**: https://docs.bmc.com/docs/brid22106/creating-tenants-in-bmc-helix-platform-1218539886.html
-**TCTL Tool installation**: https://docs.bmc.com/docs/itomdeploy22201/onboarding-and-managing-tenants-and-services-1106239754.html
+- **Tenant Creation**: https://docs.bmc.com/docs/brid22106/creating-tenants-in-bmc-helix-platform-1218539886.html
+- **TCTL Tool installation**: https://docs.bmc.com/docs/itomdeploy22201/onboarding-and-managing-tenants-and-services-1106239754.html
