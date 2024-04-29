@@ -139,13 +139,13 @@ Some prequisets are not installed by default by BMC and are not mentioned in any
   - run `yum install ansible` to install it but check that the version to be installed is **2.9.xx**.
     - If this is not true, and you are on ***RHEL 8*** then do the following.
 
-            ```shell
-            # Add the ansible 2.9 repo to RHEL 8
-            sudo subscription-manager repos --enable ansible-2.9-for-rhel-8-x86_64-rpms
+        ```shell
+          # Add the ansible 2.9 repo to RHEL 8
+          sudo subscription-manager repos --enable ansible-2.9-for-rhel-8-x86_64-rpms
 
-            # install ansible 2.9.xx from yum
-            sudo yum install ansible-2.9.27
-            ```
+          # install ansible 2.9.xx from yum
+          sudo yum install ansible-2.9.27
+        ```
 
     - If you're not on **RHEL 8** and want to install ansible 2.9 you can install **pip** and install ansible 2.9 from there but keep in mind
       - This won't work for newer versions of python
@@ -190,4 +190,16 @@ The installation script has four lines that should be commented **before running
     gpasswd --delete git wheel
     ```
 
-3. Update the kubectl version by removing the binary at `/usr/local/bin` and adding the cluster version in it's place
+3. Update the kubectl version by removing the binary at `/usr/local/bin` and adding the cluster binary version in it's place. and add the kubeconfig file to `/root/.kube/config`. Also add the `kubeadmin-password` file to the same directory
+
+4. add the openshift binary to `/usr/local/bin` so you can login to the cluster from the jenkins machine
+
+5. to login to the cluster run the following two commands
+
+  ```shell
+  # export the config file
+  export KUBECONFIG=/root/.kube/config/kubeconfig
+
+  # login to the cluster
+  oc login -u kubeadmin -p `cat /root/.kube/config/kubeadmin-password`  --insecure-skip-tls-verify=true
+  ```
