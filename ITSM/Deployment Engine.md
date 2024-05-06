@@ -216,3 +216,18 @@ in order to successfully generate the config files required to run the pipeline,
     ```shell
     oc login -u kubeadmin -p `cat /root/.kube/kubeadmin-password`  --insecure-skip-tls-verify=true
     ```
+
+### Certificate Considerations
+
+The required certificate to upload in the pipeline is not just the pem file, no it's a keystore file you'll find in the documentation in the following link:
+- https://docs.bmc.com/docs/brid22106/preparing-to-use-self-signed-or-custom-ca-certificates-1218539860.html
+
+So in order to use the certificate, do the following:
+- Download the keystore, **cacert** file, from the documentation
+- Open it in a tool like **keystore Explorer**
+- Add the certificate to this keystore
+- check the links inside the certificate you just added by clicking on it from the list and then
+    - click **extensions**
+    - click **Subject Alternate Name**
+    - Check the links to make sure they include all links you need for this certificate
+- Save the keystore and use it as needed
