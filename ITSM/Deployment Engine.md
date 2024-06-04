@@ -191,18 +191,15 @@ The installation script has four lines that should be commented **before running
     ```
 
 3. Update the kubectl version by removing the binary at `/usr/local/bin` and adding the cluster binary version in it's place. and add the kubeconfig file to `/root/.kube` and rename it to `config`. Also add the `kubeadmin-password` file to the same directory.
-  3.1. check that `.kube` folder exists in the `git` user, if not then create it and put the same kube config file in here too.
+  - check that `.kube` folder exists in the `git` user, if not then create it and put the same kube config file in here too.
 
 4. add the openshift binary to `/usr/local/bin` so you can login to the cluster from the jenkins machine
 
 5. to login to the cluster run the following two commands
 
   ```shell
-  # export the config file
-  export KUBECONFIG=/root/.kube/config/kubeconfig
-
-  # login to the cluster
-  oc login -u kubeadmin -p `cat /root/.kube/config/kubeadmin-password`  --insecure-skip-tls-verify=true
+  # login to the cluster. this assumes that the username for logging to the cluster is "kubeadmin"
+  oc login -u kubeadmin -p `cat /root/.kube/kubeadmin-password`  --insecure-skip-tls-verify=true
   ```
 
 ## Before running the HELIX_ONPREM_DEPLOYMENT pipeline
@@ -211,11 +208,6 @@ in order to successfully generate the config files required to run the pipeline,
 
 ### Please consider the following.
 - You have to login at least once per day and reupload the `kubeconfig` file to the `kubeconfig` credential within jenkins.
-- to login to the cluster you have to run the following command.
-
-    ```shell
-    oc login -u kubeadmin -p `cat /root/.kube/kubeadmin-password`  --insecure-skip-tls-verify=true
-    ```
 
 ### Certificate Considerations
 

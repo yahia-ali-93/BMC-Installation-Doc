@@ -12,3 +12,7 @@ while using the app you might come against issues. I'll list them as **case** an
         - If you're using TLS you might need to add the following flags `-Dmail.smtp.starttls.enable=true -Dmail.smtp.starttls.required=true`
         - Run `emaild.sh stop &` which should restart the mail engine
 - Access the other platform pod `platform-fts-1` or `platform-fts-0` and repeat all steps you did for the other pod above
+
+## Case: After a fresh install you try to access midtier but is says **err hannah_admin code 0**
+- This is a certificate error. Which means you either didn't follow the instructions in the certificate section in the **Deployment Engine** file, or the certificate you have is invalid.
+    - Note that the documentation says that you need the public key to add to the **cacerts** file but if you can't get it then you can use the **.pem** full chain certificate too, you just can't use **keystore explorer** to do this as it doesn't allow it so you have to follow the documentation command line instructions 
