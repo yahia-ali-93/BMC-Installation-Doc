@@ -7,3 +7,5 @@ Consider the following.
     - This will save the results of the script running in a file called **result** in the same directory.
     - If you want to watch the fetching results live then you can run `tail -f result` after running the previous command
     - This has the benefit of protecting against connection loss to the server, because `nohup` runs in it's own terminal, while being able to watch the results as they are fetched.
+- Before running the script make sure that both files have the correct permissions to run the installation scripts by running the following command on each script file in the folder
+    - `chmod +x <script name>`
