@@ -1,6 +1,9 @@
 # Setting up the harbor registery
+Follow along the documentation, but consider the following
+
 Consider the following.
 
+- Make sure to install the latest version of harbor and match the installed version of docker with harbor's compatibility
 - the user is your email and the password is the access token from the epd
 - after you create the images.txt file copy the conten of each image file to it and run it alone
 - to run the script without having to stay next to the pc .. run the following `nohup ./image_sync_to_private_registry.sh > result 2>&1 &`.
