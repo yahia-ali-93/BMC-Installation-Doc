@@ -2,3 +2,8 @@
 - To create a pod and `sh` inside of it you can use the following command
     - `kubectl run -it test-dns3 -n helixdev-itom --image=alpine:latest -- sh`
     - To attach to that pod you can use this: `kubectl attach test-dns3 -c test-dns3 -i -t`
+    - To add a package to that pod ue `apk add <package-name>`
+
+- To check a url and see if it is trusted in your environment
+    - `curl -Iv https://link.domain.com`
+    - `openssl s_client -CAfile /etc/ssl/certs/ca-certificates.crt -verify 12 -showcerts -connect link.domain.com:443`
