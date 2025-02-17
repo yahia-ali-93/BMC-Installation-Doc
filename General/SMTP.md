@@ -8,7 +8,7 @@
 - To change the SMTP credentials used in your common service installation do the following (save any file you edit after finishing and no action is required after that)
     - Update the SMTP ConfigMap:
         `kubectl edit cm smtp-credentials -n <mamespace>`
-      - Update the required SMTP details; for example, SMTP_HOST or SMTP_PORT:
+        - Update the required SMTP details; for example, SMTP_HOST or SMTP_PORT:
       
                 apiVersion: v1
                 data:
