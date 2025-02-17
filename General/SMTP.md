@@ -9,13 +9,14 @@
     - Update the SMTP ConfigMap:
         `kubectl edit cm smtp-credentials -n <mamespace>`
         -Update the required SMTP details; for example, SMTP_HOST or SMTP_PORT:
+
 ```bash
-apiVersion: v1
-data:
-SMTP_AUTH: "true"
-SMTP_HOST: mailhost.bmc.com
-SMTP_PORT: "25"
-kind: ConfigMap
+    apiVersion: v1
+    data:
+    SMTP_AUTH: "true"
+    SMTP_HOST: mailhost.bmc.com
+    SMTP_PORT: "25"
+    kind: ConfigMap
 ```
 
     - Update the SMTP Secrets:
@@ -24,11 +25,11 @@ kind: ConfigMap
         - The SMTP secrets file is displayed, as shown in the following code block:
 
 ```bash
-apiVersion: v1
-data:
-SMTP_PASSWORD: IiI=
-SMTP_USERNAME: BMC
-kind: Secret
+    apiVersion: v1
+    data:
+    SMTP_PASSWORD: IiI=
+    SMTP_USERNAME: BMC
+    kind: Secret
 ```
 
         - You can change the username, password, and other details in the secrets file. 
