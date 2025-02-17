@@ -21,12 +21,12 @@
         - To edit the SMTP secrets file, run the following command:
         - `kubectl edit secret smtp-credentials -n <namespace>`
         - The SMTP secrets file is displayed, as shown in the following code block:
-
-            apiVersion: v1
-            data:
-            SMTP_PASSWORD: IiI=
-            SMTP_USERNAME: BMC
-            kind: Secret
+        
+                apiVersion: v1
+                data:
+                SMTP_PASSWORD: IiI=
+                SMTP_USERNAME: BMC
+                kind: Secret    
           
         - You can change the username, password, and other details in the secrets file. 
         - To change the username or password, you must encode it into the Base64 format and then add it to the secrets file.
