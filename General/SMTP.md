@@ -10,14 +10,14 @@
         `kubectl edit cm smtp-credentials -n <mamespace>`
         - Update the required SMTP details; for example, SMTP_HOST or SMTP_PORT:
       
-                ```bash
+            ```bash
                 apiVersion: v1
                 data:
                 SMTP_AUTH: "true"
                 SMTP_HOST: mailhost.bmc.com
                 SMTP_PORT: "25"
                 kind: ConfigMap
-                ```
+            ```
       
     - Update the SMTP Secrets:
         - To edit the SMTP secrets file, run the following command:
