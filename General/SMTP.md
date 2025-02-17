@@ -9,25 +9,26 @@
     - Update the SMTP ConfigMap:
         `kubectl edit cm smtp-credentials -n <mamespace>`
         -Update the required SMTP details; for example, SMTP_HOST or SMTP_PORT:
-````
+```bash
     apiVersion: v1
     data:
     SMTP_AUTH: "true"
     SMTP_HOST: mailhost.bmc.com
     SMTP_PORT: "25"
     kind: ConfigMap
-````
+```
+``
     - Update the SMTP Secrets:
         - To edit the SMTP secrets file, run the following command:
         - `kubectl edit secret smtp-credentials -n <namespace>`
         - The SMTP secrets file is displayed, as shown in the following code block:
-````
+```bash
     apiVersion: v1
     data:
     SMTP_PASSWORD: IiI=
     SMTP_USERNAME: BMC
     kind: Secret
-````
+```
         - You can change the username, password, and other details in the secrets file. 
         - To change the username or password, you must encode it into the Base64 format and then add it to the secrets file.
         - To encode the username in Base64 format, run the following command:
