@@ -61,13 +61,13 @@
 
 # Using Fake SMTP
 It might happen that you're getting errors while installing the common services regarding SMTP, or you don't have any SMTP credentials from the client at the time of running the installation. If so, you need to follow steps in the following link
-    - https://community.bmc.com/s/article/BMC-Helix-Innovation-Suite-How-to-run-a-temporary-SMTP-server-to-receive-Helix-Platform-Common-Services-installation-emails
+- https://community.bmc.com/s/article/BMC-Helix-Innovation-Suite-How-to-run-a-temporary-SMTP-server-to-receive-Helix-Platform-Common-Services-installation-emails
 
 However, For simplicity, I've written down the steps in my prefered method of the alternatives mentioned in the aforementioned link.
-    - `yum -y install postfix tokyocabinet`
-    - Get the hostname of the VM You'll be running postfix's `smtp-sink` from using: `hostnamectl`
-    - run `smtp-sink -u root -d -c <hostname>:2525 100&`
-    - The tool catches all emails and saves them to the folder you ran the command above from.
-    - The tool saves every email as a file that starts with `-` (for ex: `-c259cec3b`)
-    - In case you're using this to get the tennant onboarding email, then the email recieved is in HTML format. Run the following command to get the link you need to visit to continue the `hannah_admin` user creation process
-        - `tcucodec quote -d ./<email recieved> |  grep confirm-registration | sed -e 's/.*href="//g;s/".*//g' -e 's/&#61;/=/g'`
+- `yum -y install postfix tokyocabinet`
+- Get the hostname of the VM You'll be running postfix's `smtp-sink` from using: `hostnamectl`
+- run `smtp-sink -u root -d -c <hostname>:2525 100&`
+- The tool catches all emails and saves them to the folder you ran the command above from.
+- The tool saves every email as a file that starts with `-` (for ex: `-c259cec3b`)
+- In case you're using this to get the tennant onboarding email, then the email recieved is in HTML format. Run the following   command to get the link you need to visit to continue the `hannah_admin` user creation process
+    - `tcucodec quote -d ./<email recieved> |  grep confirm-registration | sed -e 's/.*href="//g;s/".*//g' -e 's/&#61;/=/g'`
