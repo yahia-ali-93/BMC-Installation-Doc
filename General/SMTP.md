@@ -10,7 +10,7 @@
         `kubectl edit cm smtp-credentials -n <mamespace>`
         - Update the required SMTP details; for example, SMTP_HOST or SMTP_PORT:
       
-            ```bash
+            ```yml
                 apiVersion: v1
                 data:
                 SMTP_AUTH: "true"
@@ -24,7 +24,7 @@
         - `kubectl edit secret smtp-credentials -n <namespace>`
         - The SMTP secrets file is displayed, as shown in the following code block:
         
-            ```bash
+            ```yml
                 apiVersion: v1
                 data:
                 SMTP_PASSWORD: IiI=
