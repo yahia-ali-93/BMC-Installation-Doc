@@ -10,7 +10,6 @@ The solution is to run all commands that you need to deduce the values of the pa
 - before you begin `login to the cluster`.
 - to get the `<tms pod name>` variable run `oc get pods` and look for a pod that starts with **tms**
 - any mention of `<namespace>` refers to the **platform namespace**
-- The **RSSO URL** is the result of the command specified in the documentation **but you have to append /rsso to the end of the terminal result**
 
 ## Running the tool
 
@@ -19,5 +18,5 @@ The solution is to run all commands that you need to deduce the values of the pa
 
 ## Important Links
 
-- **Tenant Creation**: https://docs.bmc.com/docs/brid22106/creating-tenants-in-bmc-helix-platform-1218539886.html
-- **TCTL Tool installation**: https://docs.bmc.com/docs/itomdeploy22201/onboarding-and-managing-tenants-and-services-1106239754.html
+- **TCTL Tool installation**: https://docs.bmc.com/docs/itomdeploy244/downloading-and-configuring-the-tctl-utility-1414590724.html
+- **TCTL Usage for fixing SMTP Issues with the common services installation**: https://community.bmc.com/s/article/BMC-Helix-IT-Operations-Management-ITOM-Deployment-OnPrem-How-to-resend-a-Tenant-Activation-email-using-the-TCTL-utility-INCLUDES-VIDEO
